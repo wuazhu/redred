@@ -12,9 +12,12 @@ app.use(express.json());
 app.use(cors());
 app.use(logger);
 
+app.use(express.static('./admin'))
+
+
 // 首页
-app.get("/", async (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+app.get("/*", async (req, res) => {
+  res.sendFile(path.join(__dirname, "./admin/index.html"))
 });
 
 // // 更新计数
